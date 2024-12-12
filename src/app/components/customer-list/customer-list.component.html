@@ -1,0 +1,31 @@
+<section class="customer-list">
+  <h2>Customer List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>location</th>
+        <th>status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (customer of customers(); track customer.id) {
+      <tr>
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.location }}</td>
+        <td>{{ customer.status ? "Contacted" : "Not Contacted" }}</td>
+        <td>
+          <button (click)="toggleStatus(customer.id)">Toggle Status</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</section>
